@@ -1,4 +1,10 @@
 describe (1..10), 'Ranges' do
+  around(:each) do |t|
+    puts '---------|start|*******'
+    # run test
+    t.run
+    puts '---------|end|*******'
+  end
   it '#cover' do
     expect(subject).to cover(2)
     expect(subject).to cover(2, 5)
