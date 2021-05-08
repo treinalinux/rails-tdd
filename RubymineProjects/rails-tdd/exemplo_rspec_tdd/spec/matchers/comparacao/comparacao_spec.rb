@@ -23,6 +23,19 @@ describe 'Matchers of Comparison' do
     expect(7).to be_between(2, 7).inclusive
   end
 
+  it 'be_between inclusive / Fails aggregation' do
+    # format uses no blocks:
+    # it 'be_between inclusive / Fails aggregation', :aggregate_failures do
+    # it 'be_between inclusive / Fails aggregation', :aggregate_failures: true do
+    #
+    # aggregate_failures: aggregation errors, but continue steps, example with blocks
+    aggregate_failures do
+      expect(5).to be_between(2, 7).inclusive
+      expect(1).to be_between(2, 7).inclusive
+      expect(8).to be_between(2, 7).inclusive
+    end
+  end
+
   it 'be_between exclusive' do
     expect(5).to be_between(2, 7).exclusive
     expect(3).to be_between(2, 7).exclusive
