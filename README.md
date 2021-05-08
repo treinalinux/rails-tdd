@@ -16,4 +16,28 @@
 - Setup (System under test)
 - Exercise 
 - Verify
-- Teardown 
+- Teardown
+
+## Para customizar os testes use o arquivo .rspec
+```ruby
+# a linha do spec_helper é padrão 
+--require spec_helper
+# mostra os títulos dos testes
+--format documentation
+```
+## Executando testes com rspec
+
+```bash
+# todos
+rspec .
+
+# apenas um arquivo de teste
+rspec spec/calculator/calculator_spec.rb
+
+# apenas um título do arquivo de teste
+rspec spec/calculator/calculator_spec.rb -e 'with positive numbers'
+
+# apenas uma linha do arquivo de teste
+rspec spec/calculator/calculator_spec.rb:12
+
+```
