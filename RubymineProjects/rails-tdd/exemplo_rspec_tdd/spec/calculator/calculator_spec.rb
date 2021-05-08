@@ -3,7 +3,19 @@
 require 'calculator'
 
 # Name of my Class Calculator or an description
+# this is example common view, with before use of class: RSpec.describe ...
+# RSpec.describe Calculator, ' - just any explanatory text' do
 describe Calculator, ' - just any explanatory text' do
+  context '#div' do
+    it 'divide by 0' do
+      # use block {} and not use () when work errors
+      # Prefer use raise_error on place of raise_exception (is generic)
+      expect { subject.div(3, 0) }.to raise_error(ZeroDivisionError)
+      expect { subject.div(4, 0) }.to raise_error('divided by 0')
+      expect { subject.div(5, 0) }.to raise_error(ZeroDivisionError, 'divided by 0')
+      expect { subject.div(5, 0) }.to raise_error(/divided/)
+    end
+  end
   context '#sum' do
     # it used for describe a method
     # if it is not body your test, will be pending
