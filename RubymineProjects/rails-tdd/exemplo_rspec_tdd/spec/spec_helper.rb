@@ -14,6 +14,22 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  # this is global
+  config.before(:suite) do
+    # the all or context of all test
+    # config.before(:all) do
+    # config.before(:context) do
+    puts 'Start only start of all suite of test'
+  end
+
+  # this is global
+  config.after(:suite) do
+    # the all or context of all test
+    # config.before(:all) do
+    # config.before(:context) do
+    puts 'End only start of all suite of test'
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
